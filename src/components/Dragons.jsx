@@ -1,6 +1,10 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDragons } from '../redux/features/Dragons/dragonsSlice';
+import {
+  fetchDragons,
+  reserveDragon,
+} from '../redux/features/Dragons/dragonsSlice';
 
 const Dragons = () => {
   const dispatch = useDispatch();
@@ -18,6 +22,10 @@ const Dragons = () => {
     return <div>Error: {error}</div>;
   }
 
+  const handleReserveDragon = (dragonId) => {
+    dispatch(reserveDragon({ id: dragonId }));
+  };
+
   return (
     <div>
       <h1>SpaceX Dragons</h1>
@@ -26,7 +34,14 @@ const Dragons = () => {
           <h4>{dragon.name}</h4>
           <p>{dragon.type}</p>
           <p>ID: {dragon.id}</p>
-          <img className="dragon_img" src={dragon.flickr_images[1]} alt={dragon.name} />
+          <img
+            className="dragon_img"
+            src={dragon.flickr_images[1]}
+            alt={dragon.name}
+          />
+          <button onClick={() => handleReserveDragon(dragon.id)}>
+            Reserve Dragon
+          </button>
         </div>
       ))}
     </div>
