@@ -18,6 +18,10 @@ const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
+    populateMissions: (state, action) => {
+      console.log("populateMissions reducer invoked with action: ", action);
+      return { ...state, missions: action.payload };
+    },
     joinMission: (state, action) => {
       console.log("joinMission reducer invoked with action: ", action);
       const newState = state.missions.map((mission) => {
@@ -33,9 +37,22 @@ const missionsSlice = createSlice({
       console.log("New state after joinMission: ", newState);
       return { ...state, missions: newState };
     },
+    leaveMission: (state, action) => {
+      console.log("leaveMission reducer invoked with action: ", action);
+      const newState = state.missions.map((mission) => {
+        if (mission.mission_id !== action.payload) {
+          return mission;
+        }
+        console.log("Mission to be updated: ", mission);
+        return {
+          ...mission,
+          reserved: false,
+        };
+      });
+      console.log("New state after leaveMission: ", newState);
+      return { ...state, missions: newState };
+    }
   },
-
-
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissions.pending, (state) => {
@@ -52,5 +69,5 @@ const missionsSlice = createSlice({
   },
 });
 
-export const { joinMission } = missionsSlice.actions;
+export const { joinMission, populateMissions, leaveMission } = missionsSlice.actions;
 export default missionsSlice.reducer;
