@@ -5,16 +5,8 @@ import Missions from './components/missions';
 import Dragons from './components/Dragons';
 import MyProfile from './components/myProfile';
 import './styles/App.css';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchRockets } from './redux/features/Rockets/rocketSlice';
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
 
   return (
     <BrowserRouter>
