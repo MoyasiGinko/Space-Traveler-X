@@ -1,9 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMissions } from '../redux/features/Missions/missionsSlice';
 
 const Missions = () => {
-  const { test } = useSelector((state) => state.missions)
+  const missions = useSelector((state) => state.missions.missions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,9 +12,14 @@ const Missions = () => {
 
   return (
     <div>
-      <h1>{test}</h1>
+      {missions.map((mission) => (
+        <div key={mission.mission_id}>
+          <h2>{mission.mission_name}</h2>
+          <p>{mission.description}</p>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default Missions;
