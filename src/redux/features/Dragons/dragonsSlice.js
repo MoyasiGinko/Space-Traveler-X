@@ -1,13 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchDragons = createAsyncThunk(
-  'dragons/fetchDragons',
-  async () => {
-    const response = await fetch('https://api.spacexdata.com/v4/dragons');
-    const data = await response.json();
-    return data;
-  }
-);
+export const fetchDragons = createAsyncThunk('dragons/fetchDragons', async () => {
+  const response = await fetch('https://api.spacexdata.com/v4/dragons');
+  const data = await response.json();
+  return data;
+});
+
+export const reserveDragon = createAsyncThunk('dragons/reserveDragon', async (dragonId) => {
+  localStorage.setItem(`reserved_${dragonId}`, 'true');
+  return dragonId;
+});
+
+export const cancelReservation = createAsyncThunk('dragons/cancelReservation', async (dragonId) => {
+  localStorage.removeItem(`reserved_${dragonId}`);
+  return dragonId;
+});
 
 const initialState = {
   dragons: [],
@@ -18,20 +25,7 @@ const initialState = {
 const dragonsSlice = createSlice({
   name: 'dragons',
   initialState,
-  reducers: {
-    reserveDragon: (state, action) => {
-      const { id } = action.payload;
-
-      const newState = state.dragons.map((dragon) => {
-        if (dragon.id !== id) {
-          return dragon;
-        }
-        return { ...dragon, reserved: true };
-      });
-
-      state.dragons = newState;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchDragons.pending, (state) => {
@@ -44,9 +38,20 @@ const dragonsSlice = createSlice({
       .addCase(fetchDragons.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(reserveDragon.fulfilled, (state, action) => {
+        const dragonId = action.payload;
+        state.dragons = state.dragons.map((dragon) =>
+          dragon.id === dragonId ? { ...dragon, reserved: true } : dragon
+        );
+      })
+      .addCase(cancelReservation.fulfilled, (state, action) => {
+        const dragonId = action.payload;
+        state.dragons = state.dragons.map((dragon) =>
+          dragon.id === dragonId ? { ...dragon, reserved: false } : dragon
+        );
       });
   },
 });
 
-export const { reserveDragon } = dragonsSlice.actions;
 export default dragonsSlice.reducer;

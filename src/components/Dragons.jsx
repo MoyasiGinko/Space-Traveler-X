@@ -1,9 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchDragons,
   reserveDragon,
+  cancelReservation,
 } from '../redux/features/Dragons/dragonsSlice';
 
 const Dragons = () => {
@@ -23,7 +23,11 @@ const Dragons = () => {
   }
 
   const handleReserveDragon = (dragonId) => {
-    dispatch(reserveDragon({ id: dragonId }));
+    dispatch(reserveDragon(dragonId));
+  };
+
+  const handleCancelReservation = (dragonId) => {
+    dispatch(cancelReservation(dragonId));
   };
 
   return (
@@ -39,9 +43,18 @@ const Dragons = () => {
             src={dragon.flickr_images[1]}
             alt={dragon.name}
           />
-          <button onClick={() => handleReserveDragon(dragon.id)}>
-            Reserve Dragon
-          </button>
+          {dragon.reserved ? (
+            <>
+              <span>Reserved</span>
+              <button onClick={() => handleCancelReservation(dragon.id)}>
+                Cancel Reservation
+              </button>
+            </>
+          ) : (
+            <button onClick={() => handleReserveDragon(dragon.id)}>
+              Reserve Dragon
+            </button>
+          )}
         </div>
       ))}
     </div>
