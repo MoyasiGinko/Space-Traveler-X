@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchMissions = createAsyncThunk(
-  'rockets/fetchMissions', async () => {
+  'missions/fetchMissions', async () => {
     const response = await fetch('https://api.spacexdata.com/v3/missions');
     const data = await response.json();
     return data;
@@ -9,13 +9,13 @@ export const fetchMissions = createAsyncThunk(
 );
 
 const initialState = {
-  rockets: [],
+  missions: [],
   status: 'idle',
   error: null,
 };
 
-const missionSlice = createSlice({
-  name: 'rockets',
+const missionsSlice = createSlice({
+  name: 'missions',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -25,7 +25,7 @@ const missionSlice = createSlice({
       })
       .addCase(fetchMissions.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.rockets = action.payload;
+        state.missions = action.payload;
       })
       .addCase(fetchMissions.rejected, (state, action) => {
         state.status = 'failed';
@@ -34,4 +34,5 @@ const missionSlice = createSlice({
   }
 });
 
-export default missionSlice.reducer;
+export default missionsSlice.reducer;
+
