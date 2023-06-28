@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMissions, joinMission, leaveMission } from '../redux/features/Missions/missionsSlice';

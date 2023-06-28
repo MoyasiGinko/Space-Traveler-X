@@ -9,6 +9,22 @@ export const fetchDragons = createAsyncThunk(
   }
 );
 
+export const reserveDragon = createAsyncThunk(
+  'dragons/reserveDragon',
+  async (dragonId) => {
+    localStorage.setItem(`reserved_${dragonId}`, 'true');
+    return dragonId;
+  }
+);
+
+export const cancelReservation = createAsyncThunk(
+  'dragons/cancelReservation',
+  async (dragonId) => {
+    localStorage.removeItem(`reserved_${dragonId}`);
+    return dragonId;
+  }
+);
+
 const initialState = {
   dragons: [],
   status: 'idle',
@@ -26,11 +42,26 @@ const dragonsSlice = createSlice({
       })
       .addCase(fetchDragons.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.dragons = action.payload;
+        state.dragons = action.payload.map((dragon) => ({
+          ...dragon,
+          reserved: false, // Set initial reservation status to false
+        }));
       })
       .addCase(fetchDragons.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(reserveDragon.fulfilled, (state, action) => {
+        const dragonId = action.payload;
+        state.dragons = state.dragons.map((dragon) =>
+          dragon.id === dragonId ? { ...dragon, reserved: true } : dragon
+        );
+      })
+      .addCase(cancelReservation.fulfilled, (state, action) => {
+        const dragonId = action.payload;
+        state.dragons = state.dragons.map((dragon) =>
+          dragon.id === dragonId ? { ...dragon, reserved: false } : dragon
+        );
       });
   },
 });

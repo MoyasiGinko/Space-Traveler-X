@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDragons } from '../redux/features/Dragons/dragonsSlice';
+import {
+  fetchDragons,
+  reserveDragon,
+  cancelReservation,
+} from '../redux/features/Dragons/dragonsSlice';
 
 const Dragons = () => {
   const dispatch = useDispatch();
@@ -18,6 +22,19 @@ const Dragons = () => {
     return <div>Error: {error}</div>;
   }
 
+  const handleReserveDragon = (dragonId) => {
+    dispatch(reserveDragon(dragonId));
+  };
+
+  const handleCancelReservation = (dragonId) => {
+    dispatch(cancelReservation(dragonId));
+  };
+
+  const getReservationStatus = (dragonId) => {
+    const reserved = localStorage.getItem(`reserved_${dragonId}`);
+    return reserved === 'true'; 
+  };
+
   return (
     <div>
       <h1>SpaceX Dragons</h1>
@@ -26,7 +43,23 @@ const Dragons = () => {
           <h4>{dragon.name}</h4>
           <p>{dragon.type}</p>
           <p>ID: {dragon.id}</p>
-          <img className="dragon_img" src={dragon.flickr_images[1]} alt={dragon.name} />
+          <img
+            className="dragon_img"
+            src={dragon.flickr_images[1]}
+            alt={dragon.name}
+          />
+          {getReservationStatus(dragon.id) ? (
+            <>
+              <span>Reserved</span>
+              <button onClick={() => handleCancelReservation(dragon.id)}>
+                Cancel Reservation
+              </button>
+            </>
+          ) : (
+            <button onClick={() => handleReserveDragon(dragon.id)}>
+              Reserve Dragon
+            </button>
+          )}
         </div>
       ))}
     </div>
