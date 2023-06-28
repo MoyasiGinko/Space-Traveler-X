@@ -118,3 +118,13 @@ a {
   font-size: 18px;
   cursor: pointer;
 }
+
+.reserved {
+  width: 70px;
+  border-radius: 5px;
+  background-color: #18a2b8;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

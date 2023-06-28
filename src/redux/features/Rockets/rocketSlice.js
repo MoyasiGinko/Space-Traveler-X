@@ -1,6 +1,7 @@
-import { createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () => {
+export const fetchRockets = createAsyncThunk(
+  'rockets/fetchRockets', async () => {
     const response = await fetch('https://api.spacexdata.com/v4/rockets');
     const data = await response.json();
     const rockets = [];
@@ -11,21 +12,38 @@ export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () =>
             photo: item.flickr_images[0],
             description: item.description,
         }
-        rockets.push(rocket)
+        rockets.push(rocket);
     })
-    return rockets
-})
+    return rockets;
+  }
+);
 
 const initialState = {
-    status: 'idle',
-    rockets: [],
-    error: '',
+  rockets: [],
+  status: 'idle',
+  error: null,
 };
 
 const rocketSlice = createSlice({
+
     name: 'rockets',
     initialState,
-    reducers: {},
+    reducers: {
+        bookRocket: (state, action) => {
+            state.rockets = state.rockets.map((rocket) => {
+                if(rocket.id === action.payload) 
+                    return { ...rocket, reserved: true };  
+                return rocket;
+            });
+        },
+        canecelReservation: (state, action) => {
+            state.rockets = state.rockets.map((rocket) => {
+                if (rocket.id === action.payload)
+                    return { ...rocket, reserved: false};
+                return rocket;
+            })
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(fetchRockets.pending, (state) => {
@@ -43,4 +61,5 @@ const rocketSlice = createSlice({
 
 });
 
+export const { bookRocket, canecelReservation } = rocketSlice.actions;
 export default rocketSlice.reducer;
