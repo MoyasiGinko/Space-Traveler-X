@@ -1,4 +1,4 @@
-import { useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchRockets } from '../redux/features/Rockets/rocketSlice'
 import { bookRocket, canecelReservation } from '../redux/features/Rockets/rocketSlice'
@@ -8,18 +8,19 @@ const Rockets = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchRockets());
-  },[dispatch])
+  }, [dispatch])
 
   if (status === 'Loading') {
     return <div className="loading">Loading ...</div>
   }
 
-  if(status === "failed") {
+  if (status === "failed") {
     return <div className='error'>{error}</div>
   }
   return (
     <div className='rockets'>
       {rockets.map((rocket) => (
+
           <div className='rocket' key={rocket.id} data-id={rocket.id}>
             <img src={rocket.photo} alt={rocket.name} className='rocketImage' />
             <div className='data'>
@@ -35,9 +36,10 @@ const Rockets = () => {
               )}
               
             </div>
+
           </div>
+        </div>
       ))}
-      
     </div>
   )
 }

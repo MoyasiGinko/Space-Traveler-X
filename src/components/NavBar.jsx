@@ -10,17 +10,17 @@ const NavBar = () => {
       </div>
 
       <nav className="navBar">
-        <NavLink to="/" activeClassName="active">
+        <NavLink to="/" activeclassname="active">
           Rockets
         </NavLink>
-        <NavLink to="/Missions" activeClassName="active">
+        <NavLink to="/Missions" activeclassname="active">
           Missions
         </NavLink>
-        <NavLink to="/Dragons" activeClassName="active">
+        <NavLink to="/Dragons" activeclassname="active">
           Dragons
         </NavLink>
         <div className="line"></div>
-        <NavLink to="/MyProfile" activeClassName="active">
+        <NavLink to="/MyProfile" activeclassname="active">
           MyProfile
         </NavLink>
       </nav>
