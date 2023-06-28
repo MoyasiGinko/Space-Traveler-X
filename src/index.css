@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -71,4 +73,49 @@ a {
   width: 96%;
   height: 1.5px;
   margin: auto;
+}
+
+.loading {
+  font-size: 70px;
+  margin: 13% 30% 0 40%;
+  font-family: 'Shantell Sans', cursive;
+  color: skyblue;
+}
+
+.rockets {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.rocket {
+  width: 90%;
+  height: 220px;
+  display: flex;
+  column-gap: 20px;
+  
+}
+
+.rocketImage {
+  width: 250px;
+  height: 220px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.reserve {
+  width: 180px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  color: #d2e6ff;
+  background-color: #1383ff;
+  font-size: 18px;
+  cursor: pointer;
 }
