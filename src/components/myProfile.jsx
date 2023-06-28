@@ -1,4 +1,4 @@
-import MyDragons from './myDragons';
+import MyDragons from './child/myDragons';
 
 const MyProfile = () => {
   return (

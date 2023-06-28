@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   fetchDragons,
   cancelReservation,
-} from '../redux/features/Dragons/dragonsSlice';
+} from '../../redux/features/Dragons/dragonsSlice';
 
 const MyDragons = () => {
   const dispatch = useDispatch();
