@@ -38,7 +38,7 @@ const Rockets = () => {
             </div>
 
           </div>
-        </div>
+        
       ))}
     </div>
   )
