@@ -1,3 +1,5 @@
+// dragonsSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDragons = createAsyncThunk(
@@ -44,7 +46,7 @@ const dragonsSlice = createSlice({
         state.status = 'succeeded';
         state.dragons = action.payload.map((dragon) => ({
           ...dragon,
-          reserved: false, // Set initial reservation status to false
+          reserved: localStorage.getItem(`reserved_${dragon.id}`) === 'true',
         }));
       })
       .addCase(fetchDragons.rejected, (state, action) => {

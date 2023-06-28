@@ -1,9 +1,12 @@
+import MyDragons from './child/myDragons';
+
 const MyProfile = () => {
   return (
     <div>
-      <h2>myProfile</h2>
+      <h1>My Profile</h1>
+      <MyDragons />
     </div>
-  )
-}
+  );
+};
 
-export default MyProfile
+export default MyProfile;
