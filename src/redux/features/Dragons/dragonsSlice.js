@@ -42,7 +42,10 @@ const dragonsSlice = createSlice({
       })
       .addCase(fetchDragons.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.dragons = action.payload;
+        state.dragons = action.payload.map((dragon) => ({
+          ...dragon,
+          reserved: false, // Set initial reservation status to false
+        }));
       })
       .addCase(fetchDragons.rejected, (state, action) => {
         state.status = 'failed';

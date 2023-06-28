@@ -30,6 +30,11 @@ const Dragons = () => {
     dispatch(cancelReservation(dragonId));
   };
 
+  const getReservationStatus = (dragonId) => {
+    const reserved = localStorage.getItem(`reserved_${dragonId}`);
+    return reserved === 'true'; 
+  };
+
   return (
     <div>
       <h1>SpaceX Dragons</h1>
@@ -43,7 +48,7 @@ const Dragons = () => {
             src={dragon.flickr_images[1]}
             alt={dragon.name}
           />
-          {dragon.reserved ? (
+          {getReservationStatus(dragon.id) ? (
             <>
               <span>Reserved</span>
               <button onClick={() => handleCancelReservation(dragon.id)}>
