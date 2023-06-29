@@ -128,3 +128,33 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+.myprofile {
+  display: flex;
+  border: 2px solid skyblue;
+  column-gap: 100px;
+  color: #45494c;
+}
+
+.rockets-title {
+  margin-top: 25px;
+  font-size: 30px;
+}
+
+.myRockets {
+  width: 700px;
+  height: 245px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+}
+
+.rocketName {
+  height: 60px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.rocket-devider {
+  border-bottom: 1px solid #e8e8e8;
+}

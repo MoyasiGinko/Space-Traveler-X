@@ -10,13 +10,26 @@ export const fetchRockets = createAsyncThunk(
             id: item.id,
             name: item.name,
             photo: item.flickr_images[0],
-            description: item.description,
+            description: item.description,            
+        }
+        if(localStorage.getItem(`${item.id}`)) {
+            rocket.reserved = true
         }
         rockets.push(rocket);
     })
     return rockets;
   }
 );
+
+export const bookRocket = createAsyncThunk('rockets/reserveRocket', async (rocketId) => {
+    localStorage.setItem(`${rocketId}`, 'true');
+    return rocketId;
+});
+
+export const cancelReservation = createAsyncThunk('rockets/cancelReservation', async (rocketId) => {
+    localStorage.removeItem(`${rocketId}`);
+    return rocketId;
+})
 
 const initialState = {
   rockets: [],
@@ -29,20 +42,7 @@ const rocketSlice = createSlice({
     name: 'rockets',
     initialState,
     reducers: {
-        bookRocket: (state, action) => {
-            state.rockets = state.rockets.map((rocket) => {
-                if(rocket.id === action.payload) 
-                    return { ...rocket, reserved: true };  
-                return rocket;
-            });
-        },
-        canecelReservation: (state, action) => {
-            state.rockets = state.rockets.map((rocket) => {
-                if (rocket.id === action.payload)
-                    return { ...rocket, reserved: false};
-                return rocket;
-            })
-        }
+        
     },
     extraReducers: (builder) => {
         builder
@@ -57,9 +57,19 @@ const rocketSlice = createSlice({
             state.status = 'failed';
             state.error = action.error.message;
         })
+        .addCase(bookRocket.fulfilled, (state, action) => {
+            state.rockets = state.rockets.map((rocket) =>
+            rocket.id === action.payload ? { ...rocket, reserved: true } : rocket
+        );
+        })
+        .addCase(cancelReservation.fulfilled, (state, action) => {
+            state.rockets = state.rockets.map((rocket) =>
+            rocket.id === action.payload ? { ...rocket, reserved: false } : rocket
+        );
+        })
     }
 
 });
 
-export const { bookRocket, canecelReservation } = rocketSlice.actions;
+
 export default rocketSlice.reducer;
