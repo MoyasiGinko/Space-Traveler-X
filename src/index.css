@@ -128,3 +128,23 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+td {
+  border: 1px solid black;
+  padding: 0.3rem;
+}
+
+#myprofile {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#myprofile-missions h2, 
+#myprofile-rockets h2 {
+  padding: 1rem;
+}
+
+#myprofile-missions table,
+#myprofile-rockets table {
+  padding: 1rem;
+}
