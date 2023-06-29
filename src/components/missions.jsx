@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMissions, joinMission, leaveMission } from '../redux/features/Missions/missionsSlice';
@@ -17,12 +16,16 @@ const Missions = () => {
     console.log(updatedMission);
   }
 
-  console.log("Missions state: ", missions);
   return (
     <div>
       {missions && missions.map((mission) => (
         <div key={mission.mission_id}>
           <h2>{mission.mission_name}</h2>
+          {mission.reserved ? (
+            <span>Active Member</span>
+          ) : (
+            <span>NOT A MEMBER</span>
+          )}
           <p>{mission.description}</p>
           <button
             onClick={() => {
@@ -32,7 +35,9 @@ const Missions = () => {
                 dispatch(joinMission(mission.mission_id));
               }
             }}
-          >Join Mission</button>
+          >
+            {mission.reserved ? "Leave Mission" : "Join Mission"}
+          </button>
         </div>
       ))}
     </div>
