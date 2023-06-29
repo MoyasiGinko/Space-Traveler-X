@@ -1,10 +1,12 @@
 import MyDragons from './child/myDragons';
+import MyRockets from './child/myRockets';
+
 
 const MyProfile = () => {
   return (
-    <div>
-      <h1>My Profile</h1>
+    <div className='myprofile'>
       <MyDragons />
+      <MyRockets />
     </div>
   );
 };
