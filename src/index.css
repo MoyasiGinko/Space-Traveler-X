@@ -158,3 +158,23 @@ a {
 .rocket-devider {
   border-bottom: 1px solid #e8e8e8;
 }
+
+td {
+  border: 1px solid black;
+  padding: 0.3rem;
+}
+
+#myprofile {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#myprofile-missions h2, 
+#myprofile-rockets h2 {
+  padding: 1rem;
+}
+
+#myprofile-missions table,
+#myprofile-rockets table {
+  padding: 1rem;
+}
