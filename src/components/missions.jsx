@@ -17,14 +17,14 @@ const Missions = () => {
   }
 
   return (
-    <div>
+    <div id='missions'>
       {missions && missions.map((mission) => (
-        <div key={mission.mission_id}>
+        <div key={mission.mission_id} id='card'>
           <h2>{mission.mission_name}</h2>
           {mission.reserved ? (
-            <span>Active Member</span>
+            <span className='active-member'>ACTIVE MEMBER</span>
           ) : (
-            <span>NOT A MEMBER</span>
+            <span className='not-a-member'>NOT A MEMBER</span>
           )}
           <p>{mission.description}</p>
           <button
@@ -35,6 +35,7 @@ const Missions = () => {
                 dispatch(joinMission(mission.mission_id));
               }
             }}
+            className='mission-btn'
           >
             {mission.reserved ? "Leave Mission" : "Join Mission"}
           </button>
