@@ -11,18 +11,19 @@ const MyRockets = () => {
     const reservedRockets = rockets.filter((rocket) => rocket.reserved);
     console.log(reservedRockets)
   return (
-    <div>
-      <h2 className="rockets-title">My Rockets</h2>
-      <div className="myRockets">
-        {reservedRockets.map((rocket) => (
-          <>
-          <h2 className="rocketName">{rocket.name}</h2>
-          <div className="rocket-devider"></div>
-          </>
-        ))}
-      </div>
+    <div id="myprofile-rockets">
+      <h2>My Rockets</h2>
+      <table>
+        <tbody>
+          {reservedRockets.map((rocket) => (
+            <tr key={rocket.id}>
+              <td>{rocket.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+  );
 }
 
 export default MyRockets;
