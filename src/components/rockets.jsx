@@ -34,7 +34,7 @@ const Rockets = () => {
                 {rocket.description}
               </p>
               {getReservationStatus(rocket.id) ? (
-                <button type='button' className='reserve' onClick={() => dispatch(cancelReservation(rocket.id))}>Cancel Reservation</button>
+                <button type='button' className='cancelReserve' onClick={() => dispatch(cancelReservation(rocket.id))}>Cancel Reservation</button>
                 ) : (
                   <button type='button' className='reserve' onClick={() => dispatch(bookRocket(rocket.id))}>Reserve Rocket</button>
               )}
