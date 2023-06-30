@@ -4,8 +4,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /* color-scheme: light dark; */
   color: black;
   background-color: white;
   font-synthesis: none;
@@ -67,6 +65,7 @@ a {
 
 .active {
   text-decoration: underline;
+  color: aqua;
 }
 
 .devider {
@@ -83,7 +82,8 @@ a {
   color: skyblue;
 }
 
-.rockets {
+.rockets,
+.all-dragons {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -91,14 +91,16 @@ a {
   align-items: center;
 }
 
-.rocket {
+.rocket,
+.dragon {
   width: 90%;
   height: 220px;
   display: flex;
   column-gap: 20px;
 }
 
-.rocketImage {
+.rocketImage,
+.dragonImage {
   width: 250px;
   height: 220px;
 }
@@ -191,12 +193,14 @@ td {
 }
 
 #myprofile-missions h2,
-#myprofile-rockets h2 {
+#myprofile-rockets h2,
+#myprofile-dragons h2 {
   padding: 1rem;
 }
 
 #myprofile-missions table,
-#myprofile-rockets table {
+#myprofile-rockets table,
+#myprofile-dragons table {
   padding: 1rem;
 }
 
@@ -271,22 +275,6 @@ td {
   animation: blink 0.4s;
 }
 
-#dragons {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-#drag-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 6px;
-}
-
 .drag-btn {
   padding: 0.4rem 0.5rem;
   background-color: #1383ff;
@@ -302,7 +290,6 @@ td {
   border-radius: 6px;
   transform: scale(0.95);
   animation: blink 0.4s;
-  border: 2px solid black;
 }
 
 @keyframes blink {
@@ -313,50 +300,4 @@ td {
 
 .dragon_img {
   border-radius: 6px;
-}
-
-td,
-th {
-  border: 1px solid #ddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#Mission-header {
-  width: 170px;
-  height: 40px;
-}
-
-#Description-header {
-  width: 900px;
-  height: 40px;
-}
-
-#Status-header {
-  width: 170px;
-  height: 40px;
-}
-
-#Empty-header {
-  width: 170px;
-}
-
-#mission-name {
-  width: 170px;
-}
-
-#mission-description {
-  width: 900px;
-}
-
-#mission-status {
-  width: 170px;
-}
-
-#mission-button {
-  width: 170px;
 }
