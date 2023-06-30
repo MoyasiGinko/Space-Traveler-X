@@ -257,22 +257,6 @@ td {
   animation: blink 0.4s;
 }
 
-#dragons {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-#drag-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 6px;
-}
-
 .drag-btn {
   padding: 0.4rem 0.5rem;
   background-color: #1383ff;
