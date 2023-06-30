@@ -83,7 +83,8 @@ a {
   color: skyblue;
 }
 
-.rockets {
+.rockets,
+.all-dragons {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -91,14 +92,16 @@ a {
   align-items: center;
 }
 
-.rocket {
+.rocket,
+.dragon {
   width: 90%;
   height: 220px;
   display: flex;
   column-gap: 20px;
 }
 
-.rocketImage {
+.rocketImage,
+.dragonImage {
   width: 250px;
   height: 220px;
 }
@@ -171,7 +174,7 @@ td {
   justify-content: space-evenly;
 }
 
-#myprofile-missions h2, 
+#myprofile-missions h2,
 #myprofile-rockets h2,
 #myprofile-dragons h2 {
   padding: 1rem;
@@ -208,7 +211,7 @@ td {
 
 .active-member {
   padding: 0.2rem 0.6rem;
-  background-color: #38E54D;
+  background-color: #38e54d;
   border-radius: 4px;
   border: none;
   color: white;
@@ -268,7 +271,6 @@ td {
   border-radius: 6px;
   transform: scale(0.95);
   animation: blink 0.4s;
-  border: 2px solid black;
 }
 
 @keyframes blink {

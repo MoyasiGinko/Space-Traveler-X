@@ -35,7 +35,10 @@ const MyDragons = () => {
                 {reservedDragons.map((dragon) => (
                   <tr key={dragon.id}>
                     <td>{dragon.name}</td>
-                    <button onClick={() => handleCancelReservation(dragon.id)}>
+                    <button
+                      className="drag-cancel-btn"
+                      onClick={() => handleCancelReservation(dragon.id)}
+                    >
                       Cancel Reservation
                     </button>
                   </tr>
