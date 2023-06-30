@@ -27,22 +27,33 @@ const Rockets = () => {
   return (
     <div className="rockets">
       {rockets.map((rocket) => (
-          <div className='rocket' key={rocket.id} data-id={rocket.id}>
-            <img src={rocket.photo} alt={rocket.name} className='rocketImage' />
-            <div className='data'>
-              <h2 className='name'>{rocket.name}</h2>  
-              {getReservationStatus(rocket.id) ? (<div className='reserved'>Reserved</div>) : (<></>) }            
-              <p className='description'>                
-                {rocket.description}
-              </p>
-              {getReservationStatus(rocket.id) ? (
-                <button type='button' className='cancelReserve' onClick={() => dispatch(cancelReservation(rocket.id))}>Cancel Reservation</button>
-                ) : (
-                  <button type='button' className='reserve' onClick={() => dispatch(bookRocket(rocket.id))}>Reserve Rocket</button>
-              )}
-              
-            </div>
-
+        <div className="rocket" key={rocket.id} data-id={rocket.id}>
+          <img src={rocket.photo} alt={rocket.name} className="rocketImage" />
+          <div className="data">
+            <h2 className="name">{rocket.name}</h2>
+            {getReservationStatus(rocket.id) ? (
+              <div className="reserved">Reserved</div>
+            ) : (
+              <></>
+            )}
+            <p className="description">{rocket.description}</p>
+            {getReservationStatus(rocket.id) ? (
+              <button
+                type="button"
+                className="cancelReserve"
+                onClick={() => dispatch(cancelReservation(rocket.id))}
+              >
+                Cancel Reservation
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="reserve"
+                onClick={() => dispatch(bookRocket(rocket.id))}
+              >
+                Reserve Rocket
+              </button>
+            )}
           </div>
         </div>
       ))}
