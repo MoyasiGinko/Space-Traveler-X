@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import MyDragons from './child/myDragons';
 
 const MyProfile = () => {
   const missions = useSelector((state) => state.missions.missions);
@@ -33,6 +34,7 @@ const MyProfile = () => {
           </tbody>
         </table>
       </div>
+      <MyDragons />
     </div>
   );
 };

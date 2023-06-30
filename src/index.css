@@ -172,12 +172,14 @@ td {
 }
 
 #myprofile-missions h2, 
-#myprofile-rockets h2 {
+#myprofile-rockets h2,
+#myprofile-dragons h2 {
   padding: 1rem;
 }
 
 #myprofile-missions table,
-#myprofile-rockets table {
+#myprofile-rockets table,
+#myprofile-dragons table {
   padding: 1rem;
 }
 

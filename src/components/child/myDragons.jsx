@@ -23,30 +23,25 @@ const MyDragons = () => {
   const reservedDragons = dragons.filter((dragon) => dragon.reserved);
 
   return (
-    <div>
-      <h2>Reserved Dragons</h2>
+    <div id="myprofile-dragons">
+      <h2>My Dragons</h2>
       {status === 'loading' ? (
         <p>Loading...</p>
       ) : (
         <>
           {reservedDragons.length > 0 ? (
-            <ul>
-              {reservedDragons.map((dragon) => (
-                <li key={dragon.id}>
-                  <h4>{dragon.name}</h4>
-                  <p>{dragon.type}</p>
-                  <p>ID: {dragon.id}</p>
-                  <img
-                    className="dragon_img"
-                    src={dragon.flickr_images[1]}
-                    alt={dragon.name}
-                  />
-                  <button onClick={() => handleCancelReservation(dragon.id)}>
-                    Cancel Reservation
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <table>
+              <tbody>
+                {reservedDragons.map((dragon) => (
+                  <tr key={dragon.id}>
+                    <td>{dragon.name}</td>
+                    <button onClick={() => handleCancelReservation(dragon.id)}>
+                      Cancel Reservation
+                    </button>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           ) : (
             <p>No dragons reserved.</p>
           )}
