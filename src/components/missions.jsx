@@ -10,11 +10,7 @@ const Missions = () => {
     dispatch(fetchMissions());
   }, [dispatch]);
 
-  const onJoinMissionClick = (id) => {
-    dispatch(joinMission(id));
-    const updatedMission = missions.find((mission) => mission.mission_id === id);
-    console.log(updatedMission);
-  }
+  
 
   return (
     <div id='missions'>

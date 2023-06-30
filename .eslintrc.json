@@ -30,7 +30,7 @@
   ],
   "ignorePatterns": [
     "dist/",
-    "build/",
-    "missions.jsx"
+    "build/"
+    
   ]
 }
