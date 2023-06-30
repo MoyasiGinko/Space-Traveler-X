@@ -1,40 +1,12 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="drtcode.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <h3><b>Space Traveler's Hub</b></h3>
 
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
@@ -58,13 +30,9 @@ After you're finished please remove all the comments and instructions!
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 <a name="about-project"></a>
 
-# 📖 [your_project_name] <a name="about-project"></a>
-
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+> We built an app for a company that provides commercial and scientific space travel services using the SpaceX API. The application allows the users to book rockets and join selected space missions.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -93,145 +61,98 @@ After you're finished please remove all the comments and instructions!
   </ul>
 </details>
 
-<!-- Features -->
-
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- Rocket Booking: Our application offers users the unique ability to book their own journey on one of SpaceX's impressive rockets. Browse the available spacecraft, learn about their specifications, and reserve your seat for a space adventure.
+- Mission Selection: Not only can users book a flight, but they can also join selected space missions. This feature allows a hands-on experience for space enthusiasts, providing insights about various missions and letting them be a part of it.
+- Commercial and Scientific Journey Options: We provide both commercial and scientific space travel services. Whether you're a business looking for unique marketing opportunities, a scientist conducting research, or an individual with a passion for space, our application caters to a wide range of interests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
 ## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
 
 - [Live Demo Link](https://google.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- Node.js
+- A browser 
+- A Text Editor
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:wwwdrt/react-rtk-group-project.git 
 ```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
-```sh
   cd my-project
-  gem install
+```sh
+npm install 
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
 
 ```sh
-  rails server
+npm start
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+npm test
 ```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **DRT**
 
-👤 **Author1**
+- GitHub: [@wwwdrt](https://github.com/wwwdrt)
+- Twitter: [@drtcode](https://twitter.com/drtcode)
+- Medium: [@drtcode](https://medium.com/@wwwdrt)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Ahmed**
 
-👤 **Author2**
+- GitHub: [@ahmed025566](https://github.com/ahmed025566)
+- Twitter: [@ahmed025566](https://twitter.com/AhmedEl18692792)
+- Linktree: [@ahmed025566](https://www.linkedin.com/in/ahmed-salah025566)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Moyasi**
+
+- GitHub: [@MoyasiGinko](https://github.com/MoyasiGinko)
+- Twitter: [@MoyasiGinko](https://twitter.com/moyasi_ginko)
+- LinkedIn: [@MoyasiGinko](https://www.linkedin.com/in/mahmudur-rahman-a8a151257)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- Virtual Tour: We plan to integrate a virtual tour feature that provides a realistic 3D exploration of the rockets and the space station, offering users an immersive pre-flight experience.
+- Launch Live Stream: We're looking forward to adding the option to live stream rocket launches directly through our application, keeping our users connected to the thrilling moments of space travel.
+- Interactive Space Education Section: In order to encourage space science learning, we'll introduce an interactive section dedicated to educational resources about space exploration and technology.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -241,43 +162,17 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
-
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project, don't forget to give it a star on GitHub! Your support helps us to continue improving the app and bringing space closer to everyone. Please share Space Travelers Hub with your friends, family, and fellow space enthusiasts. Together, we can push the boundaries of space exploration!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank the brilliant team at SpaceX for their open API and for their inspiring work on pushing the boundaries of space travel. The ingenuity and dedication they exhibit in their missions have been the cornerstone of our project. I'd also like to acknowledge the countless developers and contributors in the open-source community whose code snippets, libraries, and guidance have made Space Travelers Hub possible.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
