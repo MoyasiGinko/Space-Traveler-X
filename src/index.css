@@ -120,18 +120,37 @@ a {
   color: white;
   margin-top: 0.8rem;
   cursor: pointer;
-  width: 200px;
+  width: 180px;
+  font-size: 18px;
+  height: 40px;
+}
+
+.cancelReserve {
+  height: 40px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #9da3a8;
+  border-radius: 5px;
+  font-size: 18px;
+  border-color: #9da3a8;
+  cursor: pointer;
 }
 
 .reserved {
-  padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #18a2b8;
+  border-radius: 5px;
   border: none;
-  color: white;
+  color: whitesmoke;
   margin-top: 0.8rem;
   cursor: pointer;
-  width: 200px;
+  height: 25px;
+  width: 100px;
 }
 
 .myprofile {
