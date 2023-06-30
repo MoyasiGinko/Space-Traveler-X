@@ -32,34 +32,45 @@ const Dragons = () => {
 
   const getReservationStatus = (dragonId) => {
     const reserved = localStorage.getItem(`reserved_${dragonId}`);
-    return reserved === 'true'; 
+    return reserved === 'true';
   };
 
   return (
-    <div>
-      <h1>SpaceX Dragons</h1>
+    <div className="all-dragons">
       {dragons.map((dragon) => (
-        <div key={dragon.id}>
-          <h4>{dragon.name}</h4>
-          <p>{dragon.type}</p>
-          <p>ID: {dragon.id}</p>
+        <div className="dragon" key={dragon.id}>
           <img
-            className="dragon_img"
+            className="dragonImage"
             src={dragon.flickr_images[1]}
             alt={dragon.name}
           />
-          {getReservationStatus(dragon.id) ? (
-            <>
-              <span>Reserved</span>
-              <button onClick={() => handleCancelReservation(dragon.id)}>
-                Cancel Reservation
+          <div className="data">
+            <h2 className="name">{dragon.name}</h2>
+            <div className="description">
+              <p>{dragon.type}</p>
+              <p>ID: {dragon.id}</p>
+            </div>
+            {getReservationStatus(dragon.id) ? (
+              <>
+                <span className="drag-reserved">Reserved</span>
+                <button
+                  type="button"
+                  className="drag-cancel-btn"
+                  onClick={() => handleCancelReservation(dragon.id)}
+                >
+                  Cancel Reservation
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="drag-reserve-btn"
+                onClick={() => handleReserveDragon(dragon.id)}
+              >
+                Reserve Dragon
               </button>
-            </>
-          ) : (
-            <button onClick={() => handleReserveDragon(dragon.id)}>
-              Reserve Dragon
-            </button>
-          )}
+            )}
+          </div>
         </div>
       ))}
     </div>
