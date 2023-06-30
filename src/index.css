@@ -183,7 +183,8 @@ a {
 }
 
 td {
-  border: 1px solid black;
+  border: 1px solid #dee2e6;
+  box-shadow: 0px 0px 10px #dee2e6;
   padding: 0.3rem;
 }
 
@@ -217,14 +218,24 @@ td {
   margin-top: 0.5rem;
 }
 
-.mission-btn {
+.leave-mission-btn {
   padding: 0.4rem 0.5rem;
-  background-color: #1383ff;
   border-radius: 4px;
-  border: none;
-  color: white;
-  margin-top: 0.8rem;
+  border: 2px solid #272932;
+  color: #272932;
   cursor: pointer;
+  display: flex;
+  margin: auto;
+}
+
+.join-mission-btn {
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  border: 2px solid red;
+  color: red;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
 }
 
 .active-member {
@@ -243,6 +254,8 @@ td {
   border: none;
   color: white;
   font-size: 0.6rem;
+  display: flex;
+  justify-content: center;
 }
 
 #card {
@@ -253,7 +266,6 @@ td {
 #card:hover {
   border: 2px solid black;
   border-radius: 6px;
-  transform: scale(0.95);
   animation: blink 0.4s;
 }
 
@@ -335,4 +347,34 @@ td {
   margin-top: 0.8rem;
   text-align: center;
   width: 100px;
+}
+
+#missions-name {
+  width: 10%;
+}
+
+#mission-description {
+  width: 70%;
+}
+
+#mission-status {
+  width: 10%;
+  text-align: center;
+}
+
+#mission-btn-col {
+  width: 12%;
+}
+
+#card:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#missions th:first-child, 
+#missions th:nth-child(2),
+#missions th:nth-child(3),
+#missions th:last-child {
+  border: 1px solid #dee2e6;
+  box-shadow: 0px 0px 10px #dee2e6;
+  padding: 0.5rem;
 }
