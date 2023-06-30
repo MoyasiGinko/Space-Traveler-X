@@ -10,38 +10,39 @@ const Missions = () => {
     dispatch(fetchMissions());
   }, [dispatch]);
 
-  const onJoinMissionClick = (id) => {
-    dispatch(joinMission(id));
-    const updatedMission = missions.find((mission) => mission.mission_id === id);
-    console.log(updatedMission);
-  }
+  
 
   return (
-    <div id='missions'>
+    <table id='missions'>
+      <tr>
+        <th id="Mission-header">Mission</th>
+        <th id="Description-header">Description</th>
+        <th id="Status-header">Status</th>
+        <th id="Empty-header"></th>
+      </tr>
       {missions && missions.map((mission) => (
-        <div key={mission.mission_id} id='card'>
-          <h2>{mission.mission_name}</h2>
+        <tr key={mission.mission_id}>
+          <td id='mission-name'>{mission.mission_name}</td>
+          <td id='mission-description'>{mission.description}</td>
+          <td id='mission-status'>
           {mission.reserved ? (
             <span className='active-member'>ACTIVE MEMBER</span>
           ) : (
             <span className='not-a-member'>NOT A MEMBER</span>
           )}
-          <p>{mission.description}</p>
-          <button
-            onClick={() => {
-              if (mission.reserved) {
-                dispatch(leaveMission(mission.mission_id));
-              } else {
-                dispatch(joinMission(mission.mission_id));
-              }
-            }}
-            className='mission-btn'
-          >
-            {mission.reserved ? "Leave Mission" : "Join Mission"}
-          </button>
-        </div>
+          </td>
+          <td id='mission-button'>
+          
+          {mission.reserved ? (
+            <button className='leave' onClick={() => dispatch(leaveMission(mission.mission_id))}>Leave Mission</button>
+          ) : (
+            <button className='join' onClick={() => dispatch(joinMission(mission.mission_id))}>Join Mission</button>
+          )}
+          
+          </td>
+        </tr>
       ))}
-    </div>
+    </table>
   );
 };
 
