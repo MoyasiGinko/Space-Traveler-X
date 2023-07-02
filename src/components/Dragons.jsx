@@ -19,7 +19,12 @@ const Dragons = () => {
   }
 
   if (status === 'failed') {
-    return <div>Error: {error}</div>;
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
   }
 
   const handleReserveDragon = (dragonId) => {
@@ -48,7 +53,10 @@ const Dragons = () => {
             <h2 className="name">{dragon.name}</h2>
             <div className="description">
               <p>{dragon.type}</p>
-              <p>ID: {dragon.id}</p>
+              <p>
+                ID:
+                {dragon.id}
+              </p>
             </div>
             {getReservationStatus(dragon.id) ? (
               <>
@@ -65,6 +73,7 @@ const Dragons = () => {
               <button
                 type="button"
                 className="drag-reserve-btn"
+                data-testid="cancel-reservation-button"
                 onClick={() => handleReserveDragon(dragon.id)}
               >
                 Reserve Dragon

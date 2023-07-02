@@ -5,7 +5,7 @@ export const fetchMissions = createAsyncThunk(
     const response = await fetch('https://api.spacexdata.com/v3/missions');
     const data = await response.json();
     return data;
-  }
+  },
 );
 
 const initialState = {
@@ -19,39 +19,39 @@ const missionsSlice = createSlice({
   initialState,
   reducers: {
     populateMissions: (state, action) => {
-      console.log("populateMissions reducer invoked with action: ", action);
+      console.log('populateMissions reducer invoked with action: ', action);
       return { ...state, missions: action.payload };
     },
     joinMission: (state, action) => {
-      console.log("joinMission reducer invoked with action: ", action);
+      console.log('joinMission reducer invoked with action: ', action);
       const newState = state.missions.map((mission) => {
         if (mission.mission_id !== action.payload) {
           return mission;
         }
-        console.log("Mission to be updated: ", mission);
+        console.log('Mission to be updated: ', mission);
         return {
           ...mission,
           reserved: true,
         };
       });
-      console.log("New state after joinMission: ", newState);
+      console.log('New state after joinMission: ', newState);
       return { ...state, missions: newState };
     },
     leaveMission: (state, action) => {
-      console.log("leaveMission reducer invoked with action: ", action);
+      console.log('leaveMission reducer invoked with action: ', action);
       const newState = state.missions.map((mission) => {
         if (mission.mission_id !== action.payload) {
           return mission;
         }
-        console.log("Mission to be updated: ", mission);
+        console.log('Mission to be updated: ', mission);
         return {
           ...mission,
           reserved: false,
         };
       });
-      console.log("New state after leaveMission: ", newState);
+      console.log('New state after leaveMission: ', newState);
       return { ...state, missions: newState };
-    }
+    },
   },
   extraReducers: (builder) => {
     builder

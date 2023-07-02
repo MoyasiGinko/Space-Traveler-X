@@ -1,5 +1,3 @@
-// dragonsSlice.js
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDragons = createAsyncThunk(
@@ -8,7 +6,7 @@ export const fetchDragons = createAsyncThunk(
     const response = await fetch('https://api.spacexdata.com/v4/dragons');
     const data = await response.json();
     return data;
-  }
+  },
 );
 
 export const reserveDragon = createAsyncThunk(
@@ -16,7 +14,7 @@ export const reserveDragon = createAsyncThunk(
   async (dragonId) => {
     localStorage.setItem(`reserved_${dragonId}`, 'true');
     return dragonId;
-  }
+  },
 );
 
 export const cancelReservation = createAsyncThunk(
@@ -24,7 +22,7 @@ export const cancelReservation = createAsyncThunk(
   async (dragonId) => {
     localStorage.removeItem(`reserved_${dragonId}`);
     return dragonId;
-  }
+  },
 );
 
 const initialState = {
@@ -55,15 +53,13 @@ const dragonsSlice = createSlice({
       })
       .addCase(reserveDragon.fulfilled, (state, action) => {
         const dragonId = action.payload;
-        state.dragons = state.dragons.map((dragon) =>
-          dragon.id === dragonId ? { ...dragon, reserved: true } : dragon
-        );
+        state.dragons = state.dragons.map((dragon) => (dragon.id === dragonId
+          ? { ...dragon, reserved: true } : dragon));
       })
       .addCase(cancelReservation.fulfilled, (state, action) => {
         const dragonId = action.payload;
-        state.dragons = state.dragons.map((dragon) =>
-          dragon.id === dragonId ? { ...dragon, reserved: false } : dragon
-        );
+        state.dragons = state.dragons.map((dragon) => (dragon.id === dragonId
+          ? { ...dragon, reserved: false } : dragon));
       });
   },
 });
