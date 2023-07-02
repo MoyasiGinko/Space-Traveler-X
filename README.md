@@ -68,7 +68,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- will be added later
+- [Live Preview](https://moyasiginko-space-traveller.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
